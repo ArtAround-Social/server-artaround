@@ -17,4 +17,10 @@ describe('app routes', () => {
   afterAll(() => {
     return mongoose.connection.close();
   });
+
+  it('random passing test', () => {
+    const word = 'I eye sir';
+    expect(word).toEqual('I eye sir');
+  });
+
 });
