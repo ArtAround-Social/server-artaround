@@ -89,11 +89,9 @@ describe('test for MEDIUM schema and routes', () => {
   });
 
   it('can DELETE a MEDIUM by id', () => {
-    console.log(testMedium);
     return request(app)
       .delete(`/api/v1/mediums/${testMedium._id}`)
       .then(res => {
-        console.log('line 96', res.body);
         expect(res.body.name).toEqual(testMedium.name);
       });
   });

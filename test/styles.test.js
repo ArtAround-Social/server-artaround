@@ -89,11 +89,9 @@ describe('test for STYLE schema and routes', () => {
   });
 
   it('can DELETE a STYLE by id', () => {
-    console.log(testStyle);
     return request(app)
       .delete(`/api/v1/styles/${testStyle._id}`)
       .then(res => {
-        console.log('line 96', res.body);
         expect(res.body.name).toEqual(testStyle.name);
       });
   });
