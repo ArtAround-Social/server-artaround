@@ -97,5 +97,4 @@ describe('test for MEDIUM schema and routes', () => {
         expect(res.body.name).toEqual(testMedium.name);
       });
   });
-  
 });
