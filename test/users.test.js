@@ -25,7 +25,7 @@ describe('routes for User model', () => {
     userMedium = mongoose.Types.ObjectId(),
     userPoster = mongoose.Types.ObjectId(),
     user = JSON.parse(JSON.stringify(await User.create({ 
-      user_type: 'artist',
+      userType: 'artist',
       name: 'Willem de Kooning',
       location: 'PDX', 
       styles: [userStyle],
@@ -44,7 +44,7 @@ describe('routes for User model', () => {
     return request(app)
       .post('/api/v1/users')
       .send({ 
-        user_type: 'artist',
+        userType: 'artist',
         name: 'Jeffrey',
         location: 'Israel', 
         styles: [userStyle],
@@ -57,7 +57,7 @@ describe('routes for User model', () => {
         console.log('#########', typeof res.body._id);
         expect(res.body).toEqual({
           _id: expect.any(String),
-          user_type: 'artist',
+          userType: 'artist',
           name: 'Jeffrey',
           location: 'Israel', 
           styles: [expect.any(String)],
@@ -76,7 +76,7 @@ describe('routes for User model', () => {
       .then(res => {
         expect(res.body).toEqual([{
           _id: expect.any(String),
-          user_type: 'artist',
+          userType: 'artist',
           name: 'Willem de Kooning',
           location: 'PDX', 
           styles: [expect.any(String)],
@@ -95,7 +95,7 @@ describe('routes for User model', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: user._id,
-          user_type: 'artist',
+          userType: 'artist',
           name: 'Willem de Kooning',
           location: 'PDX', 
           styles: [expect.any(String)],
@@ -114,7 +114,7 @@ describe('routes for User model', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: user._id,
-          user_type: 'artist',
+          userType: 'artist',
           name: 'Willem de Kooning',
           location: 'PDX', 
           styles: [expect.any(String)],
@@ -139,7 +139,7 @@ describe('routes for User model', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: user._id,
-          user_type: 'artist',
+          userType: 'artist',
           name: 'Johnny',
           location: 'Jakes Basement', 
           poster: expect.any(String),

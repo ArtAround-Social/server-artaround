@@ -54,7 +54,7 @@ beforeEach(async() => {
 
   // USERS
   user1 = JSON.parse(JSON.stringify(await User.create({
-    user_type: 'artist',
+    userType: 'artist',
     name: 'Willem de Kooning',
     location: 'PDX', 
     styles: [style1._id],
@@ -64,7 +64,7 @@ beforeEach(async() => {
     email: 'kwilliam@protonmail.com'
   })));
   user2 = JSON.parse(JSON.stringify(await User.create({
-    user_type: 'artist',
+    userType: 'artist',
     name: 'Jack',
     location: 'PDX', 
     styles: [style2._id],
@@ -74,7 +74,7 @@ beforeEach(async() => {
     email: 'jack@protonmail.com'
   })));
   user3 = JSON.parse(JSON.stringify(await User.create({
-    user_type: 'gallery',
+    userType: 'gallery',
     name: 'Bills Thoughts',
     location: 'London', 
     styles: [style3._id],
@@ -84,7 +84,7 @@ beforeEach(async() => {
     email: 'bill@protonmail.com'
   })));
   user4 = JSON.parse(JSON.stringify(await User.create({
-    user_type: 'gallery',
+    userType: 'gallery',
     name: 'April Breeze',
     location: 'Paris', 
     styles: [style1._id],
