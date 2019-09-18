@@ -136,6 +136,7 @@ describe('routes for User model', () => {
       });
   });
 
+  //needs work
   it('can PUT to UPDATE user by ID', () => {
     return request(app)
       .put(`/api/v1/users/${user._id}`)
@@ -151,7 +152,7 @@ describe('routes for User model', () => {
           userType: 'artist',
           name: 'Johnny',
           location: 'Jakes Basement', 
-          poster: userPoster,
+          poster: expect.any(String),
           styles: [expect.any(String)],
           mediums: [expect.any(String)],
           userAuth0Id: 'auth0|12345678',
