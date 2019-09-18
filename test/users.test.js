@@ -108,6 +108,25 @@ describe('routes for User model', () => {
       });
   });
 
+  it('GET:authId a single User auth0Id', () => {
+    return request(app)
+      .get(`/api/v1/users/auth0/${user.userAuth0Id}`)
+      .then(res => {
+        expect(res.body).toEqual({
+          _id: user._id,
+          user_type: 'artist',
+          name: 'Willem de Kooning',
+          location: 'PDX', 
+          styles: [expect.any(String)],
+          mediums: [expect.any(String)],
+          userAuth0Id: 'auth0|12345678',
+          phone: '1234567890',
+          email: 'kwilliam@protonmail.com',
+          __v: 0,
+        });
+      });
+  });
+
   it('can PUT to UPDATE user by ID', () => {
     return request(app)
       .put(`/api/v1/users/${user._id}`)
