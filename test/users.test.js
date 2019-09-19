@@ -127,6 +127,16 @@ describe('routes for User model', () => {
       });
   });
 
+  it('GET:authId undefined if no user', () => {
+    const someId = 'auth0|87654000';
+    return request(app)
+      .get(`/api/v1/users/auth0/${someId}`)
+      .then(res => {
+        expect(res.body).toEqual({ userAuth0Id: false });
+      });
+  });
+
+  //needs work
   it('can PUT to UPDATE user by ID', () => {
     return request(app)
       .put(`/api/v1/users/${user._id}`)
