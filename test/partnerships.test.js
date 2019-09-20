@@ -97,8 +97,7 @@ describe('PARTNERSHIP routes test', () => {
     return request(app)
       .put(`/api/v1/partnerships/${partnership._id}`)
       .send({
-        artist: artist._id,
-        gallery: gallery._id,
+        artists: [artist._id, gallery._id],
         active: false,
       })
       .then(res => {
