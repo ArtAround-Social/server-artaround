@@ -25,6 +25,7 @@ describe('PARTNERSHIP routes test', () => {
   let style = null;
   let artist = null;
   let medium = null;
+  let userArray = [];
 
   beforeEach(async() => {
     style = JSON.parse(JSON.stringify(await Style.create({ name: 'Abstract Expressionism' })));
@@ -48,8 +49,7 @@ describe('PARTNERSHIP routes test', () => {
       rules: 'no dogs',
     })));
     partnership = JSON.parse(JSON.stringify(await Partnership.create({
-      artist: artist._id,
-      gallery: gallery._id,
+      artists: [artist._id, gallery._id],
       active: true,
     })));
   });
@@ -65,8 +65,7 @@ describe('PARTNERSHIP routes test', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          artist: artist._id,
-          gallery: gallery._id,
+          artists: [artist._id, gallery._id],
           active: true,
           __v: 0,
         });
