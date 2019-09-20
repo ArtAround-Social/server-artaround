@@ -54,7 +54,6 @@ describe('routes for User model', () => {
         email: 'james@protonmail.com'
       })
       .then(res => {
-        console.log('#########', typeof res.body._id);
         expect(res.body).toEqual({
           _id: expect.any(String),
           userType: 'artist',
