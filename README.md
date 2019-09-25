@@ -14,3 +14,6 @@ and then something like: http://localhost:7890/api/v1/styles/
 already written aggregations to include into post-presentation version of app
 mediums/art-by-medium
 mediums/user-by-medium
+
+also, there are 2 user partner aggregations, only one of which is used. (in Partnership.js and User.js) 
+don't remember which one is being used... I THINK the one being used is the Partnership one... but check before deleting...
