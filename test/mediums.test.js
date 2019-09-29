@@ -47,19 +47,27 @@ describe('test for MEDIUM schema and routes', () => {
       { name: 'marble sculpture' },
       { name: 'acrylic painting' },
     ]);
+    const mediumsJSON = await JSON.parse(JSON.stringify(mediums));
 
     return request(app)
       .get('/api/v1/mediums')
       .then(res => {
-        const mediumsJSON = JSON.parse(JSON.stringify(mediums));
-        mediumsJSON.forEach(medium => {
-          expect(res.body).toContainEqual({
-            _id: medium._id,
-            name: medium.name
-          });
-        });
+        // console.log(mediumsJSON);
+        // mediumsJSON.forEach(medium => {
+        //   expect(res.body).toContainEqual({
+        //     _id: medium._id,
+        //     name: medium.name
+        //   });
+        // });
+        expect(res.body).toEqual(
+          [{ '__v': 0, '_id': expect.any(String), 'name': 'Screen Print' },
+            { '__v': 0, '_id': expect.any(String), 'name': 'oil painting' },
+            {'__v': 0, '_id': expect.any(String), 'name': 'marble sculpture'},
+            {'__v': 0, '_id': expect.any(String), 'name': 'acrylic painting'}]
+        );
       });
   });
+  
 
   it('cen GET by ID a single MEDIUM', () => {
     return request(app)
